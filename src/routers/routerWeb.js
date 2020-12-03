@@ -1,10 +1,11 @@
 const express = require('express');
 const routerWeb = express();
-const Products = require('../model/ProductModel')
-const Orders = require('../model/OrderModel')
+const Products = require('../model/ProductModel');
+const Orders = require('../model/OrderModel');
 const multer = require("multer");
 
-const abc = require('../controllers/abc')
+const abc = require('../controllers/abc');
+const adminController = require('../controllers/AdminContrroller');
 const uuid = require('uuid');
 
 const mongoose = require('mongoose');
@@ -12,12 +13,12 @@ const products = mongoose.model('Products');
 const cates = mongoose.model('Cates');
 const review = mongoose.model('Reviews');
 const Passport = require('passport');
-var cate = require('../model/CateModel')
-const images = require('../model/ImagesModel')
-
-//handlebars
+var cate = require('../model/CateModel');
+const images = require('../model/ImagesModel');
 
 
+
+//muler upload
 const multerStorage = multer.diskStorage({
     destination: (res, file, cb) => {
         cb(null, "./public/uploads");
@@ -45,19 +46,23 @@ const uploadDefault = multer({
     storage: multerStorage,
     fileFilter: fileFilter
 });
-routerWeb.use(Passport.initialize());
-routerWeb.use(Passport.session());
+
+// Đăng nhập
+routerWeb.post('/login', adminController.login);
 routerWeb.get('/', function (req, res) {
     res.render('signin', {layout: false});
 });
-routerWeb.post('/login', Passport.authenticate('local', {
-    successRedirect: '/index',
-    failureRedirect: '/'
-}));
+// Đăng kí
+routerWeb.get('/signup', function (req, res){
+    res.send("dangky");
+});
+routerWeb.post('/signup', adminController.register);
 
+// Get tat car san pham
 routerWeb.get('/index', abc.getAllProduct);
 routerWeb.get('/delete_product/:id', abc.deleteProduct);
 routerWeb.get('/delete_cate/:id', abc.deleteCate);
+// chap nhan don hang
 routerWeb.post('/accept_order-details', (req,res1)=>{
     console.log("dfadf");
         console.log(req.body.idOrder);
@@ -65,26 +70,25 @@ routerWeb.post('/accept_order-details', (req,res1)=>{
             res1.redirect('list_order');
         })
 });
+// list
 routerWeb.get('/list_cate', abc.getAllCate);
 routerWeb.get('/list_user', abc.getAllUser);
 routerWeb.get('/list_order', abc.getAllOrders);
 routerWeb.get('/get_order-details/:id', abc.getOrderDetails);
+// add
 routerWeb.get('/add_product', abc.addProduct);
 routerWeb.get('/add_banner', (err, res) => {
     res.render("add_banner")
 });
 
-routerWeb.get('/add_gift', (req, res) => {
-    res.render('add_gift', {layout: false});
-
-});
 
 routerWeb.get('/add_cate', (req, res) => {
     res.render('add_cate', {layout: false});
 });
-
+// edit
 routerWeb.get('/edit_product/:id', abc.getProduct);
 routerWeb.get('/edit_cate/:id', abc.getCate);
+// create post
 routerWeb.post('/create_product', uploadDefault.array('files'), (req, res1) => {
     const productId = uuid.v1();
     const nDate = new Date().toLocaleString('en-US', {
