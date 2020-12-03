@@ -7,7 +7,6 @@ const SECRET_KEY  = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCqGKukO1De7zhZj6+H0qt
 
 let isAuth = async (req, res, next) => {
   let tokenFromClient =  req.query.token || req.headers["authorization"]
-
   if(tokenFromClient != null && tokenFromClient.startsWith('Bearer ')){
     tokenFromClient = tokenFromClient.slice(7,tokenFromClient.length);
   }

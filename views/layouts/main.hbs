@@ -20,34 +20,21 @@
 </head>
 <body>
     <div class="wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/index">FBS-ADMIN</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" href="/index">Product <span class="sr-only">(current)</span></a>
-                    <a class="nav-link active" href="/list_cate">Cate</a>
-                    <a class="nav-link active" href="/list_user">User</a>
-                    <a class="nav-link active" href="/add_banner">Banner</a>
-                    <a class="nav-link active" href="/list_order">Đặt hàng</a>
-                </div>
-            </div>
-        </nav>
-        {{!-- <div class="sidebar">
+        <div class="sidebar">
             <h2><a  style="color: rgb(209, 209, 209);font-weight: bolder;" href="/index">FBS-admin</a></h2>
             <ul>
                 <li><a href="/index"><i class="fas fa-home"></i>Product</a></li>
                 <li><a href="/list_cate"><i class="fas fa-file-archive"></i>Cate</a></li>
                 <li><a href="/list_user"><i class="fas fa-user"></i>User</a></li>
-                <li><a href="/list_gift"><i class="fas fa-gift"></i>Khuyến mãi</a></li>
+                {{!-- <li><a href="/list_gift"><i class="fas fa-gift"></i>Khuyến mãi</a></li> --}}
                 <li><a href="/add_banner"><i class="fas fa-band-aid"></i>Banner</a></li>
                 <li><a href="/list_order"><i class="fas fa-luggage-cart"></i>Đặt hàng</a></li>
+                {{!-- <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li> --}}
             </ul> 
-        </div> --}}
+        </div>
         <div class="main_content">
-            {{{body}}}  
+            <div class="header">Welcome!! Have a nice day.</div>
+            <div class="content">{{{body}}}</div>  
         </div>
     </div>
     <script>

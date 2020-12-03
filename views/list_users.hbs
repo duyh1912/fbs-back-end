@@ -10,7 +10,43 @@
                     <th>Role</th>
                 </tr>
             </thead>
+            <tbody><body>
+    <div class="col-lg-10" style="position: absolute; right: 0;">
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    {{!-- <th>Image</th> --}}
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
             <tbody>
+                 {{# each userList}}
+                {{!-- <td>
+                    <image src="http://localhost:4000/public/photo/{{avatar}}" style="width: 50px; height: 50px"> </image>
+                </td> --}}
+                <td>{{username}}</td>
+                <td>{{email}}</td>
+                <td >{{phone}}</td>
+                <td >{{role}}</td>
+                </tr>
+                    {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // $(document).ready(function () {
+        //     $('#table').DataTable();
+        // });
+        $(document).ready(function() {
+            $('#example').DataTable();
+        } );
+    </script>
+</body>
+
+
                  {{# each userList}}
                 {{!-- <td>
                     <image src="http://localhost:4000/public/photo/{{avatar}}" style="width: 50px; height: 50px"> </image>
