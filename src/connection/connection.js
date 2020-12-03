@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 
-// var URL = 'mongodb+srv://vnfood:vnfood@cluster0-amioj.mongodb.net/vnfood?retryWrites=true&w=majority';
+var URL = 'mongodb+srv://vnfood:vnfood@cluster0-amioj.mongodb.net/vnfood?retryWrites=true&w=majority';
 
 // mongodemo
-var URL = 'mongodb+srv://fbs:fbs@cluster0.phcap.mongodb.net/fbs?retryWrites=true&w=majority';
+// var URL = 'mongodb+srv://fbs:fbs@cluster0.phcap.mongodb.net/fbs?retryWrites=true&w=majority';
 
 mongoose.set('useFindAndModify', false);
 
