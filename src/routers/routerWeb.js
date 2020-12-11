@@ -48,17 +48,23 @@ const uploadDefault = multer({
 });
 
 // Đăng nhập
-routerWeb.post('/login', adminController.login);
 routerWeb.get('/', function (req, res) {
     res.render('signin', {layout: false});
 });
+routerWeb.post('/login', adminController.login);
+
 // Đăng kí
 routerWeb.get('/signup', function (req, res){
     res.send("dangky");
 });
 routerWeb.post('/signup', adminController.register);
+// GET /logout
+routerWeb.get("/logout",(req,res)=>{
+    req.logout();
+    res.redirect("/");
+});
 
-// Get tat car san pham
+// Get/ list
 routerWeb.get('/index', abc.getAllProduct);
 routerWeb.get('/delete_product/:id', abc.deleteProduct);
 routerWeb.get('/delete_cate/:id', abc.deleteCate);
@@ -70,12 +76,11 @@ routerWeb.post('/accept_order-details', (req,res1)=>{
             res1.redirect('list_order');
         })
 });
-// list
 routerWeb.get('/list_cate', abc.getAllCate);
 routerWeb.get('/list_user', abc.getAllUser);
 routerWeb.get('/list_order', abc.getAllOrders);
 routerWeb.get('/get_order-details/:id', abc.getOrderDetails);
-// add
+// GET/add
 routerWeb.get('/add_product', abc.addProduct);
 routerWeb.get('/add_banner', (err, res) => {
     res.render("add_banner")
@@ -85,10 +90,10 @@ routerWeb.get('/add_banner', (err, res) => {
 routerWeb.get('/add_cate', (req, res) => {
     res.render('add_cate', {layout: false});
 });
-// edit
+// GET/update
 routerWeb.get('/edit_product/:id', abc.getProduct);
 routerWeb.get('/edit_cate/:id', abc.getCate);
-// create post
+// POST/create
 routerWeb.post('/create_product', uploadDefault.array('files'), (req, res1) => {
     const productId = uuid.v1();
     const nDate = new Date().toLocaleString('en-US', {
@@ -144,6 +149,7 @@ routerWeb.post('/create_cate', uploadDefault.single('file'), (req, res1) => {
     })
 
 });
+// POsT/Update
 routerWeb.post('/update_product', uploadDefault.single('file'), (req, res) => {
 
     var image;

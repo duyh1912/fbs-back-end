@@ -23,8 +23,6 @@ router.use(
         //cookie sẽ tồn tại trong 5 phút, nếu xóa dòng code sau thì cookie sẽ hết hạn sau khi đóng trinh duyệt
     })
 );
-
-
 exports.getAllProduct = function (request, response) {
     product.find({
         delete_at: null
