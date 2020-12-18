@@ -33,6 +33,8 @@ app.use('*/dist', express.static('public/dist'));
 // cấu hình hbs
 app.engine('.hbs', exphbs({extname: '.hbs'}));
 app.set('view engine', '.hbs');
+// app.set('views', path.join(__dirname, 'resources/views'));
+
 
 app.use('/',webRouter);
 app.use('/api/users', usersRouter);
