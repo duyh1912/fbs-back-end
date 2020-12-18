@@ -25,6 +25,9 @@ app.use(express.urlencoded({ extended: false }));
 // app.use("/public/photo", express.static(path.join('/Users/pro/ProjectAndroid/android_server/webadmin/public/uploads')));
 app.use("/public/photo", express.static("public/uploads"));
 app.use('*/css', express.static('public/css'));
+app.use('*/assets', express.static('public/assets'));
+app.use('*/dist', express.static('public/dist'));
+
 
 
 // cấu hình hbs

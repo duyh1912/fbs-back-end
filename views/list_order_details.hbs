@@ -1,41 +1,31 @@
 <body>
-    <div class="col-lg-10" style="position: absolute;right: 0;">
-        <table id="example" class="table table-striped table-bordered" style="width:100%">
+    <div class="table-responsive">
+        <table class="table v-middle" style="position: absolute">
             <thead>
-            <tr>
-                <th>Images</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Total Amount</th>
-                <th>Total Price</th>
-            </tr>
+                <tr class="bg-light">
+                    <th class="border-top-0">Images</th>
+                    <th class="border-top-0">Name</th>
+                    <th class="border-top-0">Price</th>
+                    <th class="border-top-0">Total Amount</th>       
+                    <th class="border-top-0">Total Price</th>                                   
+                </tr>
             </thead>
                 <tbody>
-                    {{# each orderDetailsList}}
+                    {{# each orderDetailsList}}
 
-                  {{# each product}}
-                       <td> <image src="http://localhost:5000/public/photo/{{image}}"
-                                   style="width: 50px; height: 50px"></image></td>
+                    {{# each product}}
+                    <tr>
+                        <td> <image src="http://localhost:5000/public/photo/{{image}}"
+                                    style="width: 50px; height: 50px"></image>
+                        </td>
                         <td>{{name}}</td>
-                       <td>{{price}}</td>
-                          {{/each}}
-
-
-                    <td>{{amount}}</td>
-                    <td>{{price}}</td>
-
+                        <td>{{price}}</td>
+                        {{/each}}
+                        <td>{{amount}}</td>
+                        <td>{{price}}</td>
                     </tr>
-                      {{/each}}
+                    {{/each}}
                 </tbody>
         </table>
-
     </div>
-<script>
-    // $(document).ready(function () {
-    //     $('#table').DataTable();
-    // });
-    $(document).ready(function () {
-        $('#example').DataTable();
-    });
-</script>
 </body>

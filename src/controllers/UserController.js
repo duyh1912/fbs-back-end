@@ -64,7 +64,7 @@ exports.login = (req, res, next) => {
 
                 })
             } else {
-                console.log("sfdfd")
+                console.log("Lỗi")
                 res.status(501).send({statusCode: res.statusCode, message: 'Tài khoản hoặc mật khẩu không đúng! ' + err,data : []})
 
             }
