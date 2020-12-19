@@ -11,7 +11,8 @@ let generateToken = (user) =>{
             {data: userData},
             SECRET_KEY,
             {
-                expiresIn: '365d',
+              algorithm: "HS256",
+              expiresIn: '365d',
             },
             (error, token) => {
               if (error) {

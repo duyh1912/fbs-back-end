@@ -12,17 +12,6 @@ const bcrypt = require('bcrypt');
 const uuid = require('uuid');
 
 
-router.use(
-    session({
-        secret: 'mysecret', //thuôc tính bắt buộc
-        resave: true,
-        saveUninitialized: true,
-        cookie: {
-            maxAge: 1000 * 60 * 5,
-        },
-        //cookie sẽ tồn tại trong 5 phút, nếu xóa dòng code sau thì cookie sẽ hết hạn sau khi đóng trinh duyệt
-    })
-);
 exports.getAllProduct = function (request, response) {
     product.find({
         delete_at: null
@@ -77,8 +66,27 @@ exports.getAllUser = function (req, res) {
     })
 
 };
+exports.getAllGift = function (req, res) {
 
+    gift.find().lean().exec((err, data) => {
+        if (err) throw err;
+        res.render('list_gift', {giftList: data.reverse()});
 
+    })
+
+};
+exports.addGift = (req, res) => {
+
+}
+exports.deleteGift = function (request, response) {
+    gift.deleteOne({_id: request.params.id}, (err, doc) => {
+        if (!err) {
+            response.redirect('/list_gift');
+        } else {
+            console.log(err);
+        }
+    });
+};
 exports.addProduct = function (req, res) {
 
     cate.find().lean().exec((err, data) => {

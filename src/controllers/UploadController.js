@@ -1,5 +1,6 @@
 const banners = require('../model/BannerModel')
 const uuid = require('uuid');
+
 const uploadPhoto = (req, res) => {
     uploadPhotos(req, res);
     const file = req.file;
