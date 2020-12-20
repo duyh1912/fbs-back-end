@@ -1,7 +1,7 @@
 (function () {
     const mongoose = require('mongoose');
     const user = mongoose.model('User');
-
+// TẠO USER
     exports.createUser = function (user, callback) {
 
         user.save(user).then((response) => {
@@ -11,7 +11,7 @@
         });
     };
 
-
+// KIẾM USER THEO ID
     exports.findUser = function (query, callback) {
         user.findOne({userId: query}, callback);
     };
@@ -24,6 +24,7 @@
             callback(err, response);
         });
     };
+    // ĐỔi MẬT KHẢU
     exports.updatePassword =  (id,newPassword,callback)=>{
         user.updateOne(
             {userId: id},
@@ -38,7 +39,7 @@
             }
         );
     }
-
+// CẬP NHẬT TÊN
     exports.updateUser = function (query, data, options, callback) {
         user.findOneAndUpdate(query, data, options, (err, response) => {
             callback(err, response);

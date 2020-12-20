@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const uuid = require('uuid');
 const jwt = require('../helpers/jwt');
 
-
+// Đặt hàng
 exports.addOrder = function (req, response, next) {
     const nDate = new Date().toLocaleString('en-US', {
         timeZone: 'Asia/Ho_Chi_Minh'

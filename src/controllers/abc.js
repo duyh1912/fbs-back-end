@@ -11,7 +11,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 const uuid = require('uuid');
 
-
+// get all sản phẩm
 exports.getAllProduct = function (request, response) {
     product.find({
         delete_at: null
@@ -31,7 +31,7 @@ exports.getAllProduct = function (request, response) {
         });
     })
 };
-
+// get sản phẩm theo id
 exports.getProduct = function (request, response) {
     product.findById(request.params.id)
         .lean()
@@ -40,6 +40,7 @@ exports.getProduct = function (request, response) {
                 cate.find().lean().exec((err, cates) => {
                     if (err) throw err;
                     if (err) throw err;
+                    // chuyển sang edit
                     response.render('edit_product', {product: data, cates: cates.reverse()});
 
                 })
@@ -48,7 +49,7 @@ exports.getProduct = function (request, response) {
             }
         });
 };
-
+// get tất cả loại
 exports.getAllCate = function (req, res) {
 
     cate.find().lean().exec((err, data) => {
@@ -58,6 +59,7 @@ exports.getAllCate = function (req, res) {
     })
 
 };
+// get tất cả người dùng
 exports.getAllUser = function (req, res) {
 
     User.find().lean().exec((err, data) => {
@@ -66,27 +68,7 @@ exports.getAllUser = function (req, res) {
     })
 
 };
-exports.getAllGift = function (req, res) {
-
-    gift.find().lean().exec((err, data) => {
-        if (err) throw err;
-        res.render('list_gift', {giftList: data.reverse()});
-
-    })
-
-};
-exports.addGift = (req, res) => {
-
-}
-exports.deleteGift = function (request, response) {
-    gift.deleteOne({_id: request.params.id}, (err, doc) => {
-        if (!err) {
-            response.redirect('/list_gift');
-        } else {
-            console.log(err);
-        }
-    });
-};
+// thêm sản phẩm
 exports.addProduct = function (req, res) {
 
     cate.find().lean().exec((err, data) => {
@@ -96,6 +78,7 @@ exports.addProduct = function (req, res) {
     })
 
 };
+// xóa
 exports.deleteProduct = function (request, response) {
     product.deleteOne({_id: request.params.id}, (err, doc) => {
         if (!err) {
@@ -114,6 +97,7 @@ exports.deleteCate = function (request, response) {
         }
     });
 };
+// get loại theo id
 exports.getCate = function (request, response) {
     cate.findById(request.params.id)
         .lean()
@@ -124,6 +108,7 @@ exports.getCate = function (request, response) {
             }
         });
 };
+// danh sách oder
 exports.getAllOrders = (req, res1) => {
     Orders.aggregate([
         {
@@ -141,6 +126,7 @@ exports.getAllOrders = (req, res1) => {
 
 
 };
+// oder details
 exports.getOrderDetails = async (req, res1) => {
     OrdersDetails.find({idOrder: req.params.id}, (err, data) => {
         OrdersDetails.aggregate([

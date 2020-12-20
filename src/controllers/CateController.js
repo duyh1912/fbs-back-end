@@ -2,7 +2,7 @@ const Cate = require('../model/CateModel');
 const cateService = require('../services/cate');
 const uuid = require('uuid');
 
-
+// thêm loại
 exports.add = function (req, res, next) {
     const cate = new Cate(req.body);
     cate.cateId = uuid.v1();
@@ -24,6 +24,7 @@ exports.add = function (req, res, next) {
         }
     });
 };
+// xóa loại
 exports.delete = function (req, res) {
     cateService.deleteCate(req.body.cateId, function (err, response) {
         if (response) {
@@ -33,6 +34,7 @@ exports.delete = function (req, res) {
         }
     })
 };
+// cập nhật
 exports.update = function (req, res) {
     const cate = new Cate(req.body);
     cateService.updateCate(req.body.cateId, cate, function (err, response) {
@@ -43,6 +45,7 @@ exports.update = function (req, res) {
         }
     })
 };
+// lấy ra LIST
 exports.list = function (req, res) {
     cateService.selectAll(function (err, data) {
         if (data) {
@@ -53,6 +56,7 @@ exports.list = function (req, res) {
     })
 
 };
+// banner
 exports.listBanner = function (req, res) {
     cateService.selectAllBanner(function (err, data) {
         if (data) {

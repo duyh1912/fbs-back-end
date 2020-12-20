@@ -7,7 +7,7 @@ const jwt = require('../helpers/jwt');
 
 exports.create = function (req, res, next) {
 
-    //check email exits
+// KIỂM TRA XEM EMAIL ĐÃ TỒN TẠI HAY CHƯA
     User.findOne({email: req.body.email}).exec(async (err, user) => {
         if (err) return res.status(401).json(err);
         if (user) return res.status(404).json({statusCode: res.statusCode, err: 'Email đã tồn tại!'});
@@ -45,16 +45,18 @@ exports.create = function (req, res, next) {
     });
 
 };
+// ĐĂNG NHẬP
 exports.login = (req, res, next) => {
     console.log("user login " + req.body.email);
     User.findOne({email: req.body.email}).exec(function (err, user) {
         if (err) return res.json(err);
 
         if (!user) return res.status(404).json({statusCode: res.statusCode, message: 'Tài khoản không tồn tại!',data : []});
-
+// mã hóa mật khảu
         bcrypt.compare(req.body.password, user.password, (err, result) => {
             if (err) return res.json(err);
             if (result) {
+                //cấp token xác thực
                 jwt.generateToken(user).then((token) => {
                     user.token = token;
                     res.status(200).json({statusCode: res.statusCode, data: user});
@@ -72,12 +74,14 @@ exports.login = (req, res, next) => {
     });
 
 };
+// hồ sơ user
 exports.profile = (req, res, next) => {
     userService.findUser(req.userId, (err, response) => {
         if (err) return res.status(401).json(err);
         return res.status(200).json({statusCode: res.statusCode, data: response});
     })
 };
+// đổi mật khẩu
 exports.changePassword = (req, res, next) => {
     console.log(req.body.newPassword)
     console.log(req.body.oldPassword)
@@ -90,6 +94,7 @@ exports.changePassword = (req, res, next) => {
                     if (err) {
                         res.status(401).send({statusCode: res.statusCode, err: 'Mã hoá mật khẩu thất bại!'})
                     } else {
+                        // cập nhật mật khẩu
                         userService.updatePassword(user.userId, hash, (err, result) => {
                             if (err) {
                                 res.status(404).send({statusCode: res.statusCode, err: 'Có lỗi xảy ra ! ' + err})

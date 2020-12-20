@@ -1,6 +1,7 @@
 const banners = require('../model/BannerModel')
 const uuid = require('uuid');
 
+// tải ảnh lên
 const uploadPhoto = (req, res) => {
     uploadPhotos(req, res);
     const file = req.file;
@@ -36,6 +37,7 @@ const uploadPhotos = (req, res) => {
     });
 
 };
+// upload banner
 const uploadPhotosBanner = (req, res) => {
     const files = req.files;
     if (!files) {

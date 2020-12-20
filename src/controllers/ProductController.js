@@ -3,7 +3,7 @@ const Review = require('../model/ReviewModel');
 const productService = require('../services/product');
 const uuid = require('uuid');
 
-
+// Thêm sp
 exports.add = function (req, res, next) {
     const nDate = new Date().toLocaleString('en-US', {
         timeZone: 'Asia/Ho_Chi_Minh'
@@ -27,7 +27,7 @@ exports.add = function (req, res, next) {
         }
     });
 };
-
+// thêm review
 exports.addReview = function (req, res, next) {
 
     const nDate = new Date().toLocaleString('en-US', {
@@ -47,6 +47,7 @@ exports.addReview = function (req, res, next) {
         }
     });
 };
+// lấy list
 exports.list = function (req, res) {
     productService.selectAll(function (err, data) {
         if (data) {
@@ -57,6 +58,7 @@ exports.list = function (req, res) {
     })
 
 };
+// lấy sản phẩm mớ nhất
 exports.newList = function (req, res) {
     productService.selectAll(function (err, data) {
         if (data) {
