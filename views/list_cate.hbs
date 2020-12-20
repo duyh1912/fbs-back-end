@@ -21,7 +21,8 @@
                         <td>
                             <a class="btn btn-outline-warning" href="/edit_cate/{{_id}}">Edit</a>
 
-                            <a class="btn btn-outline-danger" href="/delete_cate/{{_id}}">Delete</a>
+                            <a class="btn btn-outline-danger" href="/delete_cate/{{_id}}"
+                                onclick="return confirm('Bạn có muốn xóa ?')">Delete</a>
                         </td>
                     </tr>
                     {{/each}}
