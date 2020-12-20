@@ -11,8 +11,8 @@ routerUser.get('/', function (req, res, next) {
  * To create the New user
  */
 routerUser.post('/register', user.create);
-routerUser.use(auth.isAuth);
 routerUser.post('/login',user.login);
+routerUser.use(auth.isAuth);
 routerUser.get('/profile',user.profile);
 routerUser.post('/change-password',user.changePassword);
 
