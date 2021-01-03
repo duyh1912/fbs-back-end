@@ -6,11 +6,11 @@
     <table id="table" class="table v-middle display cell-border text-dark table-hover">
         <thead>
             <tr class="bg-light">
-                <th class="border-top-0">Images</th>
-                <th class="border-top-0">Name</th>
-                <th class="border-top-0">Price</th>
-                <th class="border-top-0">Description</th>
-                <th class="border-top-0">Cate</th>
+                <th class="border-top-0">Hình ảnh</th>
+                <th class="border-top-0">Tên sản phẩm</th>
+                <th class="border-top-0">Giá</th>
+                <th class="border-top-0">Mô tả</th>
+                <th class="border-top-0">Loại sản phẩm</th>
                 <th class="border-top-0"></th>                                           
             </tr>
         </thead>
@@ -31,10 +31,10 @@
                             {{/each}}
                     </td>
                     <td>
-                        <a class="btn btn-outline-warning" href="/edit_product/{{_id}}">Edit</a>
+                        <a class="btn btn-outline-warning" href="/edit_product/{{_id}}">Sửa</a>
 
                         <a class="btn btn-outline-danger" href="/delete_product/{{_id}}"
-                            onclick="return confirm('Bạn có muốn xóa ?')">Delete</a>
+                            onclick="return confirm('Bạn có muốn xóa ?')">Xóa</a>
                     </td>
                 </tr>
                 {{/each}}

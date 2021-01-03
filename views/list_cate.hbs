@@ -6,8 +6,8 @@
         <table class="table v-middle">
             <thead>
                 <tr class="bg-light">
-                    <th class="border-top-0">Images</th>
-                    <th class="border-top-0">Name</th>
+                    <th class="border-top-0">Hình ảnh</th>
+                    <th class="border-top-0">Tên loại sản phẩm</th>
                     <th class="border-top-0"></th>                                           
                 </tr>
             </thead>
@@ -19,10 +19,10 @@
                         </td>
                         <td>{{name}}</td>
                         <td>
-                            <a class="btn btn-outline-warning" href="/edit_cate/{{_id}}">Edit</a>
+                            <a class="btn btn-outline-warning" href="/edit_cate/{{_id}}">Sửa</a>
 
                             <a class="btn btn-outline-danger" href="/delete_cate/{{_id}}"
-                                onclick="return confirm('Bạn có muốn xóa ?')">Delete</a>
+                                onclick="return confirm('Bạn có muốn xóa ?')">Xóa</a>
                         </td>
                     </tr>
                     {{/each}}
