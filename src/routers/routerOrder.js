@@ -8,7 +8,7 @@ routerOrders.get('/', function (req, res, next) {
     res.send('respond with a resource');
 });
 
-// routerOrders.use(AuthMiddleWare.isAuth);
+routerOrders.use(AuthMiddleWare.isAuth);
 
 routerOrders.post('/add',orders.addOrder);
 
