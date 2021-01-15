@@ -3,7 +3,7 @@
     <a  href="/add_product" class="btn btn-primary">Thêm sản phẩm</a>
 </button>
 <div class="table-responsive" >
-    <table id="table" class="table v-middle display cell-border text-dark table-hover">
+    <table id="table" class="table v-middle display cell-border text-dark table-hover table-striped table-bordered">
         <thead>
             <tr class="bg-light">
                 <th class="border-top-0">Hình ảnh</th>
@@ -11,7 +11,7 @@
                 <th class="border-top-0">Giá</th>
                 <th class="border-top-0">Mô tả</th>
                 <th class="border-top-0">Loại sản phẩm</th>
-                <th class="border-top-0"></th>                                           
+                <th class="border-top-0">Thao tác</th>                                           
             </tr>
         </thead>
             <tbody>
@@ -31,9 +31,9 @@
                             {{/each}}
                     </td>
                     <td>
-                        <a class="btn btn-outline-warning" href="/edit_product/{{_id}}">Sửa</a>
+                        <a class="btn btn-secondary m-2" href="/edit_product/{{_id}}">Sửa</a>
 
-                        <a class="btn btn-outline-danger" href="/delete_product/{{_id}}"
+                        <a class="btn btn-danger m-2" href="/delete_product/{{_id}}"
                             onclick="return confirm('Bạn có muốn xóa ?')">Xóa</a>
                     </td>
                 </tr>

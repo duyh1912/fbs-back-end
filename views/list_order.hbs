@@ -1,7 +1,7 @@
 <body>
      <!--=============================Table ============================ -->
 <div class="table-responsive">
-    <table class="table v-middle">
+    <table class="table v-middle table-striped table-bordered">
         <thead>
             <tr class="bg-light">
                 <th class="border-top-0">Id</th>
@@ -10,7 +10,7 @@
                 <th class="border-top-0">Người mua</th>
                 <th class="border-top-0">Địa chỉ</th>
                 <th class="border-top-0">Trạng thái</th>
-                <th class="border-top-0"></th>                                           
+                <th class="border-top-0">Thao tác</th>                                           
             </tr>
         </thead>
             <tbody>
@@ -49,7 +49,7 @@
                            
                         </script>
                         {{!--  --}}
-                        <a class="btn btn-outline-primary mr-2" href="/get_order-details/{{idOrder}}">Details</a>
+                        <a class="btn btn-primary m-2" href="/get_order-details/{{idOrder}}">Chi tiết</a>
                         {{!-- <a ="hidden" class="btn btn-outline-danger" href="#">Cancel</a> --}}
                     </td>
                 </tr>

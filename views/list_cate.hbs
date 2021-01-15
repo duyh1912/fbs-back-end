@@ -3,12 +3,12 @@
         <a  href="/add_cate" class="btn btn-primary">Thêm Loại sản phẩm</a>
     </button>
     <div class="table-responsive"  >
-        <table class="table v-middle">
+        <table class="table v-middle table-striped table-bordered">
             <thead>
                 <tr class="bg-light">
                     <th class="border-top-0">Hình ảnh</th>
                     <th class="border-top-0">Tên loại sản phẩm</th>
-                    <th class="border-top-0"></th>                                           
+                    <th class="border-top-0">Thao tác</th>                                           
                 </tr>
             </thead>
                 <tbody>
@@ -19,9 +19,9 @@
                         </td>
                         <td>{{name}}</td>
                         <td>
-                            <a class="btn btn-outline-warning" href="/edit_cate/{{_id}}">Sửa</a>
+                            <a class="btn btn-secondary" href="/edit_cate/{{_id}}">Sửa</a>
 
-                            <a class="btn btn-outline-danger" href="/delete_cate/{{_id}}"
+                            <a class="btn btn-danger" href="/delete_cate/{{_id}}"
                                 onclick="return confirm('Bạn có muốn xóa ?')">Xóa</a>
                         </td>
                     </tr>
