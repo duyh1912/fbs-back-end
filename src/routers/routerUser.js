@@ -12,7 +12,7 @@ routerUser.get('/', function (req, res, next) {
  */
 routerUser.post('/register', user.create);
 routerUser.post('/login',user.login);
-// routerUser.use(auth.isAuth);
+routerUser.use(auth.isAuth);
 routerUser.get('/profile',user.profile);
 routerUser.post('/change-password',user.changePassword);
 
