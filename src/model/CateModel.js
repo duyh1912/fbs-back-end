@@ -16,6 +16,11 @@ var CateSchema = new mongoose.Schema({
         required: true,
 
     },
+    productId: {
+        type: String,
+
+
+    },
     created_at:{
         type: Date
     },

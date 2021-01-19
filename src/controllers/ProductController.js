@@ -14,7 +14,6 @@ exports.add = function (req, res, next) {
     product.description = req.body.description;
     product.image = req.body.image;
     product.cateId = req.body.cateId;
-
     product.created_at = nDate;
     product.update_at = nDate;
 
