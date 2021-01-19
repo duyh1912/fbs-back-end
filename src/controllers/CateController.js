@@ -26,7 +26,8 @@ exports.add = function (req, res, next) {
 };
 // xóa loại
 exports.delete = function (req, res) {
-    cateService.deleteCate(req.body.cateId, function (err, response) {
+    cateService.deleteCate(req.body.cateId , function (err, response) {
+     
         if (response) {
             res.status(201).json({statusCode: res.statusCode, msg: 'Delete thành công!'});
         } else if (err) {

@@ -25,7 +25,7 @@
             timeZone: 'Asia/Ho_Chi_Minh'
         });
 
-        await cate.findOneAndUpdate({cateId: query}, {delete_at: nDate}, (err, response) => {
+        await cate.findOneAndRemove({cateId: query},{productId: query}, {delete_at: nDate}, (err, response) => {
             callback(err, response);
         });
     };

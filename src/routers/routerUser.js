@@ -9,7 +9,7 @@ routerUser.get('/', function (req, res, next) {
 
 /**
  * To create the New user
- */
+ */ 
 routerUser.post('/register', user.create);
 routerUser.post('/login',user.login);
 routerUser.use(auth.isAuth);
